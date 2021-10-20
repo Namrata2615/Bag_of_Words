@@ -1,0 +1,134 @@
++*In[1]:*+
+[source, ipython3]
+----
+from sklearn.feature_extraction.text import CountVectorizer
+----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+vectorizer=CountVectorizer()
+
+----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+phrase=["The food is delicious and tasty",
+        "Everyone liked the food"]
+----
+
+
++*In[12]:*+
+[source, ipython3]
+----
+vectorizer.fit(phrase)
+----
+
+
++*Out[12]:*+
+----CountVectorizer()----
+
+
++*In[16]:*+
+[source, ipython3]
+----
+b= vectorizer.transform(phrase)
+----
+
+
++*In[17]:*+
+[source, ipython3]
+----
+print(b)
+----
+
+
++*Out[17]:*+
+----
+  (0, 0)	1
+  (0, 1)	1
+  (0, 3)	1
+  (0, 4)	1
+  (0, 6)	1
+  (0, 7)	1
+  (1, 2)	1
+  (1, 3)	1
+  (1, 5)	1
+  (1, 7)	1
+----
+
+
++*In[19]:*+
+[source, ipython3]
+----
+print(b.toarray())
+----
+
+
++*Out[19]:*+
+----
+[[1 1 0 1 1 0 1 1]
+ [0 0 1 1 0 1 0 1]]
+----
+
+
++*In[21]:*+
+[source, ipython3]
+----
+print(len(vectorizer.vocabulary_))
+----
+
+
++*Out[21]:*+
+----
+8
+----
+
+
++*In[24]:*+
+[source, ipython3]
+----
+print(vectorizer.vocabulary_)
+----
+
+
++*Out[24]:*+
+----
+{'the': 7, 'food': 3, 'is': 4, 'delicious': 1, 'and': 0, 'tasty': 6, 'everyone': 2, 'liked': 5}
+----
+
+
++*In[25]:*+
+[source, ipython3]
+----
+print(vectorizer.vocabulary_.get("delicious"))
+----
+
+
++*Out[25]:*+
+----
+1
+----
+
+
++*In[26]:*+
+[source, ipython3]
+----
+print(vectorizer.vocabulary_.get("everyone"))
+----
+
+
++*Out[26]:*+
+----
+2
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
